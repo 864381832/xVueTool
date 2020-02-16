@@ -1,19 +1,35 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import '@/router/filter'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(ElementUI)
+import 'font-awesome/css/font-awesome.css'
+import store from '@/store'
+import echarts from 'echarts'
+import 'xe-utils'
+import VXETable from 'vxe-table'
+import 'vxe-table/lib/index.css'
+import '@/assets/css/dd-icon.css'
+import i18n from '@/i18n/i18n'
+
+// quill编辑器代码高亮
+import 'quill/dist/quill.snow.css'
+import 'highlight.js/styles/monokai-sublime.css'
+import '@/assets/css/quill.css'
 
 Vue.config.productionTip = false
 
+Vue.use(ElementUI)
+Vue.use(echarts)
+Vue.use(VXETable)
+
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    router,
+    store,
+    i18n,
+    components: { App },
+    template: '<App/>'
 })
