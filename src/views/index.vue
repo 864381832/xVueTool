@@ -3,10 +3,6 @@
     <el-alert title="温馨提示" type="success" class="wxts">
       <slot>
         本后台模板为静态模板，所有数据均为测试数据，均未与后台交互。如果此模板能够帮助您，烦请给本项目点个 star 谢谢。<br />
-        github 地址：
-        <a href="https://github.com/dongdong-cloud/dd-admin" target="_blank">https://github.com/dongdong-cloud/dd-admin</a> &nbsp;&nbsp;&nbsp;
-        码云地址：
-        <a href="https://gitee.com/dongdong-cloud/dd-admin" target="_blank">https://gitee.com/dongdong-cloud/dd-admin</a>
       </slot>
     </el-alert>
 
@@ -39,9 +35,6 @@
 
 <script>
 // import elCol from "@/components/el-col";
-import echarts from "echarts";
-import china from "echarts/map/json/china.json";
-echarts.registerMap("china", china);
 export default {
   //  components: { elCol },
   data() {

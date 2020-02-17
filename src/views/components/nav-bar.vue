@@ -43,25 +43,14 @@
         <li>
           <el-popover :title="$t('message.navBar.SHARE_TEXT')" width="330" trigger="hover">
             <div>
-              Github 地址:
-              <br />
-              <el-link
-                type="primary"
-                :underline="false"
-                href="https://github.com/dongdong-cloud/dd-admin"
-                target="_blank"
-              >https://github.com/dongdong-cloud/dd-admin</el-link>
-            </div>
-            <br />
-            <div>
               码云地址:
               <br />
               <el-link
                 type="primary"
                 :underline="false"
-                href="https://gitee.com/dongdong-cloud/dd-admin"
+                href="https://gitee.com/xwintop/xVueTool"
                 target="_blank"
-              >https://gitee.com/dongdong-cloud/dd-admin</el-link>
+              >https://gitee.com/xwintop/xVueTool</el-link>
             </div>
             <i class="el-icon-share" slot="reference"></i>
           </el-popover>

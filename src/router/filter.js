@@ -10,19 +10,19 @@ import User from '@/json/user'
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
-  if (commonUtil.notNull(Auth.getToken())) { // 判断是否登录
+  // if (commonUtil.notNull(Auth.getToken())) { // 判断是否登录
     if (store.state.user.dynamicRouters.length === 0) {
       addRouter(next, to)
     } else {
       next()
     }
-  } else {
-    if (Config.ROUTER_WHITE_LIST.indexOf(to.path) > -1) { // 判断是否在白名单中
-      next()
-    } else {
-      next('/login') // 否则全部重定向到登录页
-    }
-  }
+  // } else {
+    // if (Config.ROUTER_WHITE_LIST.indexOf(to.path) > -1) { // 判断是否在白名单中
+    //   next()
+    // } else {
+    //   next('/login') // 否则全部重定向到登录页
+    // }
+  // }
 })
 
 router.afterEach(() => {

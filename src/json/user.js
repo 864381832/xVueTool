@@ -24,22 +24,22 @@ const user = {
       ]
     },
     {
-      id: 4,
-      path: '/basic',
-      name: '基础组件',
-      enName: 'Basic',
+      id: 5,
+      path: '/code-tools',
+      name: '编码工具',
+      enName: 'codeTools',
       icon: 'fa fa-cogs',
       parentId: 0,
       component: 'home',
       children: [
         {
-          id: 5,
-          path: 'table',
-          name: '表格',
-          enName: 'Table',
+          id: 501,
+          path: 'base64',
+          name: 'Base64加密解密',
+          enName: 'Base64Tool',
           icon: 'fa fa-table',
-          parentId: 4,
-          component: 'basic/table'
+          parentId: 5,
+          component: 'code-tools/base64'
         }
       ]
     },
@@ -133,7 +133,7 @@ const user = {
     },
     {
       id: 30,
-      path: 'https://dd-admin.ocreatech.com',
+      path: 'https://www.xwintop.com',
       name: '链接',
       enName: 'Link',
       icon: 'fa fa-link',
@@ -142,7 +142,7 @@ const user = {
       children: [
         {
           id: 31,
-          path: 'https://dd-admin.ocreatech.com',
+          path: 'https://www.xwintop.com',
           name: '外部链接',
           enName: 'External Link',
           icon: 'fa fa-external-link-square',
