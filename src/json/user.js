@@ -53,7 +53,7 @@ const user = {
       component: 'home',
       children: [
         {
-          id: 11,
+          id: 901,
           path: 'code',
           name: '代码编辑器',
           enName: 'Code',
@@ -62,13 +62,22 @@ const user = {
           component: 'editor/code'
         },
         {
-          id: 36,
+          id: 902,
           path: 'markdown',
           name: 'markdown',
           enName: 'markdown',
           icon: 'dd markdown',
           parentId: 9,
           component: 'editor/markdown'
+        },
+        {
+          id: 903,
+          path: 'jsoneditor',
+          name: 'json编辑器',
+          enName: 'jsonEditor',
+          icon: 'dd markdown',
+          parentId: 9,
+          component: 'editor/jsoneditor'
         }
       ]
     },

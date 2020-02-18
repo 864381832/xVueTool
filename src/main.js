@@ -12,6 +12,8 @@ import VXETable from 'vxe-table'
 import 'vxe-table/lib/index.css'
 import '@/assets/css/dd-icon.css'
 import i18n from '@/i18n/i18n'
+import VueClipboard from 'vue-clipboard2'
+Vue.use(VueClipboard)
 
 // quill编辑器代码高亮
 
