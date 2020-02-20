@@ -75,9 +75,18 @@ const user = {
           path: 'jsoneditor',
           name: 'json编辑器',
           enName: 'jsonEditor',
-          icon: 'dd markdown',
+          icon: 'fa fa-code',
           parentId: 9,
           component: 'editor/jsoneditor'
+        },
+        {
+          id: 904,
+          path: 'xmleditor',
+          name: 'xml编辑器',
+          enName: 'xmlEditor',
+          icon: 'fa fa-code',
+          parentId: 9,
+          component: 'editor/xmleditor'
         }
       ]
     },
