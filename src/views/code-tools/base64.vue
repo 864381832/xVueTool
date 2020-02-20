@@ -8,8 +8,8 @@
       <el-radio v-model="encryptType" label="2" border size="medium" @change="jiemi">解密</el-radio>
       <!--      <el-button round type="primary" @click="jiami">加密</el-button>-->
       <!--      <el-button round type="primary" @click="jiemi">解密</el-button>-->
-      <el-button round type="success" @click="jiaohuanneirong">交换内容</el-button>
-      <el-button @click="output='',input=''" type="danger" round>清空结果
+      <el-button round type="success" icon="el-icon-sort" @click="jiaohuanneirong">交换内容</el-button>
+      <el-button @click="output='',input=''" type="danger" round icon="el-icon-delete">清空结果
       </el-button>
       <el-select style="margin-left: 10px; width: 10%;" v-model="select" placeholder="编码">
         <el-option label="UTF-8" value="1">

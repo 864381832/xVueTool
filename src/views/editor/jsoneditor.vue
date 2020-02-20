@@ -2,7 +2,7 @@
   <div>
     <el-row :gutter="20">
       <el-col :xs="11" :sm="11">
-        <div id="treeEditor" style="height: 100%;"></div>
+        <div id="treeEditor" :style="contentStyleObj"></div>
       </el-col>
       <el-col class="mc-ui-flex-center" style="width: 60px;">
         <el-row align="middle" justify="center">
@@ -18,8 +18,19 @@
               </el-button>
             </el-tooltip>
           </el-col>
+          <el-col style="margin-bottom: 20px; margin-top: 20px;" :xs="24">
+            <el-tooltip effect="dark" content="两边内容交换" placement="top">
+              <el-button icon="el-icon-sort" style="transform: rotate(90deg);" circle @click="convertContent" type="info">
+              </el-button>
+            </el-tooltip>
+          </el-col>
           <el-col style="margin-top: 20px; margin-bottom: 20px;" :xs="24">
-            <el-tooltip effect="dark" content="拷贝至剪切板" placement="top">
+            <el-tooltip effect="dark" content="两边数据保持同步" placement="top">
+              <el-checkbox v-model="syncData" label="同步" size="mini"></el-checkbox>
+            </el-tooltip>
+          </el-col>
+          <el-col style="margin-top: 20px; margin-bottom: 20px;" :xs="24">
+            <el-tooltip effect="dark" content="拷贝左边内容至剪切板" placement="top">
               <el-button @click="copy" circle type="success" icon="el-icon-document-copy">
               </el-button>
             </el-tooltip>
@@ -27,13 +38,12 @@
         </el-row>
       </el-col>
       <el-col :xs="11" :sm="11">
-        <div id="codeEditor" style="height: 100%;"></div>
+        <div id="codeEditor" :style="contentStyleObj"></div>
       </el-col>
     </el-row>
   </div>
 </template>
 <script>
-  import {Message} from 'element-ui';
   import 'jsoneditor/dist/jsoneditor.min.css'
   import jsoneditor from 'jsoneditor';
 
@@ -41,7 +51,11 @@
     data() {
       return {
         codeEditor: null,
-        treeEditor: null
+        treeEditor: null,
+        syncData: true,
+        contentStyleObj:{
+          height:''
+        }
       }
     },
     mounted: function () {
@@ -55,23 +69,32 @@
         "Object": {"a": "b", "c": "d"},
         "String": "Hello World",
       };
-      let options = {
+      let treeOptions = {
         mode: 'tree',
         modes: ['code', 'tree'],
-        onError: function (err) {
-          Message(err.toString());
-          // this.$message('内容交换成功！');
+        onError: (err) => {
+          this.$message(err.toString());
+        },
+        onChange: () => {
+          if (this.syncData) {
+            this.convertRight();
+          }
         }
       }
-      let options2 = {
+      let codeOptions = {
         mode: 'code',
         modes: ['code', 'tree'],
-        onError: function (err) {
-          Message(err.toString());
+        onError: (err) => {
+          this.$message(err.toString());
+        },
+        onChange: () => {
+          if (this.syncData) {
+            this.convertLeft();
+          }
         }
       }
-      this.treeEditor = new jsoneditor(treeEditorElement, options, json);
-      this.codeEditor = new jsoneditor(codeEditorElement, options2, json);
+      this.treeEditor = new jsoneditor(treeEditorElement, treeOptions, json);
+      this.codeEditor = new jsoneditor(codeEditorElement, codeOptions, json);
     },
     methods: {
       convertRight() {
@@ -80,6 +103,11 @@
       convertLeft() {
         this.treeEditor.update(this.codeEditor.get());
       },
+      convertContent(){
+        let codeEditorJson = this.codeEditor.get();
+        this.codeEditor.update(this.treeEditor.get());
+        this.treeEditor.update(codeEditorJson);
+      },
       copy() {
         // let oInput = document.createElement('input');
         // oInput.value = this.treeEditor.getText();
@@ -87,13 +115,24 @@
         // oInput.select(); // 选择对象;
         // document.execCommand("Copy"); // 执行浏览器复制命令
         // oInput.remove();
-        this.$copyText(this.treeEditor.getText()).then(function (e) {
-          Message('已成功复制到剪切板');
-        }, function (e) {
-          Message('复制到剪切板失败！' + e.toString());
+        this.$copyText(this.treeEditor.getText()).then((e) => {
+          this.$message('已成功复制到剪切板');
+        }, (e) => {
+          this.$message('复制到剪切板失败！' + e.toString());
         })
+      },
+      getHeight(){
+        this.contentStyleObj.height=window.innerHeight-100+'px';
       }
     },
-    computed: {}
+    computed: {},
+    created(){
+      window.addEventListener('resize', this.getHeight);
+      this.getHeight()
+    },
+
+    destroyed(){
+      window.removeEventListener('resize', this.getHeight)
+    }
   }
 </script>
