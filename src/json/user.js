@@ -19,7 +19,7 @@ const user = {
           parentId: 0,
           fixed: true,
           component: 'index',
-          meta: { fixed: true }
+          meta: {fixed: true}
         }
       ]
     },
@@ -40,6 +40,14 @@ const user = {
           icon: 'fa fa-table',
           parentId: 5,
           component: 'code-tools/base64'
+        }, {
+          id: 502,
+          path: 'md5',
+          name: 'md5加密',
+          enName: 'md5Tool',
+          icon: 'fa fa-table',
+          parentId: 5,
+          component: 'code-tools/md5'
         }
       ]
     },
