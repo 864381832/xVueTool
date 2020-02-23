@@ -4,6 +4,7 @@
     <el-input v-model="input" rows="10" @input="inputChange" placeholder="请输入需要加密的字符串" type="textarea">
     </el-input>
     <el-row style="margin-top: 20px; margin-bottom: 20px;">
+      <el-button @click="zhantie" type="success" round icon="el-icon-s-order">粘贴内容</el-button>
       <el-button @click="input='',outputMd5_32_u='',outputMd5_32_l='',outputMd5_16_u='',outputMd5_16_l=''" type="danger"
                  round icon="el-icon-delete">清空结果
       </el-button>
@@ -65,6 +66,24 @@
       }
     },
     methods: {
+      zhantie() {
+        if (window.clipboardData) {
+          let clipboardText = window.clipboardData.getData('Text');
+          this.input = clipboardText;
+          this.jiami();
+        } else if (window.navigator) {
+          // const text = navigator.clipboard.readText();
+          navigator.clipboard.readText()
+            .then(text => {
+              this.input = text;
+              this.jiami();
+              // console.log('Pasted content: ', text);
+            }).catch(err => {
+            this.$message("粘贴内容失败：" + err.toString());
+            console.error('Failed to read clipboard contents: ', err);
+          });
+        }
+      },
       inputChange() {
         this.jiami();
       },
