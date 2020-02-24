@@ -73,16 +73,16 @@
       let codeEditorElement = document.getElementById('codeEditor')
       let xml = "<sites>\n" +
         "    <site>\n" +
-        "        <name>菜鸟教程</name>\n" +
-        "        <url>www.runoob.com</url>\n" +
+        "        <name>追风的博客</name>\n" +
+        "        <url>https://www.xwintop.com</url>\n" +
         "    </site>\n" +
         "    <site>\n" +
-        "        <name>Googl</name>\n" +
-        "        <url>www.google.com</url>\n" +
+        "        <name>xJavaFxTool</name>\n" +
+        "        <url>https://gitee.com/xwintop/xJavaFxTool</url>\n" +
         "    </site>\n" +
         "    <site>\n" +
-        "    <name>淘宝</name>\n" +
-        "        <url>www.taobao.com</url>\n" +
+        "    <name>xVueTool</name>\n" +
+        "        <url>https://gitee.com/xwintop/xVueTool</url>\n" +
         "    </site>\n" +
         "</sites>";
       let treeOptions = {

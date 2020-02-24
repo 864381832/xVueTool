@@ -88,13 +88,20 @@
         this.jiami();
       },
       jiami() {
-        try {
-          this.outputMd5_32_u = CryptoJS.MD5(this.input).toString().toUpperCase();
-          this.outputMd5_32_l = CryptoJS.MD5(this.input).toString().toLowerCase();
-          this.outputMd5_16_u = this.outputMd5_32_u.substring(8, 24);
-          this.outputMd5_16_l = this.outputMd5_32_l.substring(8, 24);
-        } catch (e) {
-          this.$message('加密失败！' + e.toString());
+        if (this.input == '') {
+          this.outputMd5_32_u = "";
+          this.outputMd5_32_l = "";
+          this.outputMd5_16_u = "";
+          this.outputMd5_16_l = "";
+        }else {
+          try {
+            this.outputMd5_32_u = CryptoJS.MD5(this.input).toString().toUpperCase();
+            this.outputMd5_32_l = CryptoJS.MD5(this.input).toString().toLowerCase();
+            this.outputMd5_16_u = this.outputMd5_32_u.substring(8, 24);
+            this.outputMd5_16_l = this.outputMd5_32_l.substring(8, 24);
+          } catch (e) {
+            this.$message('加密失败！' + e.toString());
+          }
         }
       },
       copy(output) {
