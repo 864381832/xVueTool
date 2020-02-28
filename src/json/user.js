@@ -95,6 +95,15 @@ const user = {
           icon: 'fa fa-code',
           parentId: 9,
           component: 'editor/xmleditor'
+        },
+        {
+          id: 905,
+          path: 'crontab',
+          name: 'Cron编辑器',
+          enName: 'CronTab',
+          icon: 'fa fa-code',
+          parentId: 9,
+          component: 'editor/crontab'
         }
       ]
     },
