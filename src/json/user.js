@@ -48,6 +48,14 @@ const user = {
           icon: 'fa fa-table',
           parentId: 5,
           component: 'code-tools/md5'
+        }, {
+          id: 503,
+          path: 'time-tool',
+          name: '时间转换',
+          enName: 'TimeTool',
+          icon: 'fa fa-table',
+          parentId: 5,
+          component: 'code-tools/time-tool'
         }
       ]
     },
