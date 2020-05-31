@@ -1,4 +1,7 @@
-<h2 align="center">X - tool 开发小工具集合web版</h2>
+::: hljs-center
+# X - tool 开发小工具集合web版
+:::
+### X-tool 是一个前端开发工具集合，基于 vue 2 和 element-ui 2.12.0 开发小工具集合
 
 ### 安装步骤
 -----
