@@ -18,6 +18,18 @@ npm run build
 -----
 演示地址 [https://xwintop.gitee.io/xvuetool](https://xwintop.gitee.io/xvuetool "x-tool")
 
+**xJavaFxTool交流QQ群：== [387473650(此群已满)](https://jq.qq.com/?_wv=1027&k=59UDEAD) [1104780992](https://jq.qq.com/?_wv=1027&k=bhAdkju9) ==**
+**xJavaFxTool吐个槽：== [进来吐槽](https://support.qq.com/product/127577) ==**
+
+#### 目前集成的小工具有：
+1. Cron表达式生成器
+2. json格式化编辑工具
+3. Base64加密解密
+4. md5加密
+5. 时间转换：时间戳及时间格式化
+6. markdown编辑器
+7. xml编辑器
+
 ### 目录结构
 -----
 

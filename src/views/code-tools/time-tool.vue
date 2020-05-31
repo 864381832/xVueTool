@@ -53,7 +53,7 @@
         </el-input>
       </el-col>
     </el-row>
-    <div class="layui-col-md9">
+    <div class="layui-col-md9" style="margin-top: 200px">
       <fieldset class="layui-elem-field layui-field-title site-title">
         <legend><h1 name="grid">各种语言 · 获取当前时间戳</h1></legend>
       </fieldset>
@@ -275,12 +275,12 @@
   export default {
     data() {
       return {
-        nowTime: new Date().getTime(),
+        nowTime: 0,
         nowTimeFormat: '',
         nowTimeButton: '停止',
         nowTimeIntId: null,
         timeString: new Date().getTime(),
-        timeStringFormat: dateFormat("yyyy-mm-dd hh:MM:ss", new Date()),
+        timeStringFormat: dateFormat.asString("yyyy-MM-dd hh:mm:ss", new Date()),
         timeFormatOptions: [{
           value: "yyyy-MM-dd hh:mm:ss",
           label: "yyyy-MM-dd hh:mm:ss"
@@ -312,9 +312,8 @@
         }
       },
       convertDateToString() {
-        // this.timeStringFormat = new Date(parseInt(this.timeString)).toLocaleString();
         try {
-          this.timeStringFormat = dateFormat(this.timeFormatValue, new Date(parseInt(this.timeString)));
+          this.timeStringFormat = dateFormat.asString(this.timeFormatValue, new Date(parseInt(this.timeString)));
         } catch (e) {
           this.$message('格式化转换异常：' + e.toString());
         }
@@ -328,8 +327,9 @@
       },
       startNowTime() {
         this.nowTimeIntId = setInterval(() => {
-          this.nowTime = new Date().getTime();
-          this.nowTimeFormat = dateFormat("yyyy-mm-dd hh:MM:ss", new Date(this.nowTime));
+          let nowDate = new Date();
+          this.nowTime = nowDate.getTime();
+          this.nowTimeFormat = dateFormat.asString("yyyy-MM-dd hh:mm:ss", nowDate);
         }, 1000);
       },
       copy(output) {

@@ -186,7 +186,7 @@ const user = {
         {
           id: 31,
           path: 'https://www.xwintop.com',
-          name: '外部链接',
+          name: '追风的博客',
           enName: 'External Link',
           icon: 'fa fa-external-link-square',
           parentId: 30,

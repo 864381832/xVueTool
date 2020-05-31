@@ -55,7 +55,7 @@ export default {
   },
   data() {
     return {
-      content: "console.log('Hello Word!')",
+      content: "console.log('https://www.xwintop.com')",
       config: {
         theme: "vs-dark",
         language: "javascript"

@@ -15,6 +15,9 @@ import i18n from '@/i18n/i18n'
 import VueClipboard from 'vue-clipboard2'
 Vue.use(VueClipboard)
 
+// import ViewUI from 'view-design';
+// import 'view-design/dist/styles/iview.css';
+
 // quill编辑器代码高亮
 
 Vue.config.productionTip = false
@@ -22,6 +25,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(echarts)
 Vue.use(VXETable)
+// Vue.use(ViewUI);
 
 /* eslint-disable no-new */
 new Vue({
