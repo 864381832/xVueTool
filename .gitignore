@@ -14,4 +14,8 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+.gradle
+gradle
+gradlew
+gradlew.bat
 package-lock.json

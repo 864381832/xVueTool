@@ -1,9 +1,8 @@
 <template>
   <dir>
     <h4>Base64加密、解密</h4>
-    <el-upload @click="" drag action="#" :auto-upload="false" :multiple="false" :show-file-list="false" :on-change="handleChange">
-    </el-upload>
-    <el-input v-model="input" rows="10" @input="inputChange" placeholder="请输入需要编码的字符" type="textarea">
+    <el-input id="uploadInputId" v-model="input" rows="10" @input="inputChange" placeholder="请输入需要编码的字符或拖动文件至此"
+              type="textarea">
     </el-input>
     <el-row style="margin-top: 10px; margin-bottom: 10px;">
       <el-radio v-model="encryptType" label="1" border size="medium" @change="jiami">加密</el-radio>
@@ -219,14 +218,21 @@
         select: 'UTF-8',
       }
     },
-    methods: {
-      handleChange(file, fileList) {
-        let rd = new FileReader();
-        rd.onload = e => {
-          this.input = rd.result;
+    mounted: function () {
+      let uploadInputElement = document.getElementById("uploadInputId");
+      uploadInputElement.addEventListener("drop", (ev) => {
+        ev.preventDefault();//取消事件的默认动作。
+        let fileReader = new FileReader();
+        let file = ev.dataTransfer.files[0];
+        fileReader.onload = e => {
+          this.input = fileReader.result;
+          this.jiami();
         };
-        rd.readAsText(file.raw, 'utf-8');
-      },
+        // fileReader.readAsText(file, 'utf-8');
+        fileReader.readAsText(file);
+      }, false);
+    },
+    methods: {
       inputChange() {
         if (this.encryptType == '1') {
           this.jiami();
