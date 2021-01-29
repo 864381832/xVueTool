@@ -10,10 +10,14 @@
       <el-button round type="success" icon="el-icon-document-copy" @click="copy">复制结果</el-button>
       <el-button round type="success" icon="el-icon-sort" @click="jiaohuanneirong">交换内容</el-button>
       <el-button @click="output='',input=''" type="danger" round icon="el-icon-delete">清空</el-button>
-      <el-select style="margin-left: 10px; width: 10%;" v-model="select" placeholder="编码">
+      <el-select style="margin-left: 10px; width: 10%;" filterable allow-create default-first-option v-model="select" placeholder="编码">
         <el-option label="UTF-8" value="1">
         </el-option>
         <el-option label="GB2312" value="2">
+        </el-option>
+        <el-option label="GB18030" value="3">
+        </el-option>
+        <el-option label="IOS-8859" value="4">
         </el-option>
       </el-select>
     </el-row>
@@ -206,69 +210,69 @@
   </dir>
 </template>
 <script>
-  import Base64 from 'crypto-js/enc-base64';
-  import Utf8 from 'crypto-js/enc-utf8';
+import Base64 from 'crypto-js/enc-base64'
+import Utf8 from 'crypto-js/enc-utf8'
 
-  export default {
-    data() {
-      return {
-        encryptType: '1',
-        input: '',
-        output: '',
-        select: 'UTF-8',
+export default {
+  data () {
+    return {
+      encryptType: '1',
+      input: '',
+      output: '',
+      select: 'UTF-8'
+    }
+  },
+  mounted: function () {
+    let uploadInputElement = document.getElementById('uploadInputId')
+    uploadInputElement.addEventListener('drop', (ev) => {
+      ev.preventDefault()// 取消事件的默认动作。
+      let fileReader = new FileReader()
+      let file = ev.dataTransfer.files[0]
+      fileReader.onload = e => {
+        this.input = fileReader.result
+        this.jiami()
+      }
+      // fileReader.readAsText(file, 'utf-8');
+      fileReader.readAsText(file)
+    }, false)
+  },
+  methods: {
+    inputChange () {
+      if (this.encryptType === '1') {
+        this.jiami()
+      } else {
+        this.jiemi()
       }
     },
-    mounted: function () {
-      let uploadInputElement = document.getElementById("uploadInputId");
-      uploadInputElement.addEventListener("drop", (ev) => {
-        ev.preventDefault();//取消事件的默认动作。
-        let fileReader = new FileReader();
-        let file = ev.dataTransfer.files[0];
-        fileReader.onload = e => {
-          this.input = fileReader.result;
-          this.jiami();
-        };
-        // fileReader.readAsText(file, 'utf-8');
-        fileReader.readAsText(file);
-      }, false);
-    },
-    methods: {
-      inputChange() {
-        if (this.encryptType == '1') {
-          this.jiami();
-        } else {
-          this.jiemi();
-        }
-      },
-      jiami() {
-        try {
-          this.output = Base64.stringify(Utf8.parse(this.input));
-        } catch (e) {
-          this.$message('加密失败！' + e.toString());
-        }
-      },
-      jiemi() {
-        try {
-          this.output = Utf8.stringify(Base64.parse(this.input));
-        } catch (e) {
-          this.$message('解密失败！' + e.toString());
-        }
-      },
-      copy() {
-        this.$copyText(this.output).then((e) => {
-          this.$message('已成功复制到剪切板');
-        }, (e) => {
-          this.$message('复制到剪切板失败！' + e.toString());
-        })
-      },
-      jiaohuanneirong() {
-        let s = this.input;
-        this.input = this.output;
-        this.output = s;
-        this.$message('内容交换成功！');
+    jiami () {
+      try {
+        this.output = Base64.stringify(Utf8.parse(this.input))
+      } catch (e) {
+        this.$message('加密失败！' + e.toString())
       }
     },
-  };
+    jiemi () {
+      try {
+        this.output = Utf8.stringify(Base64.parse(this.input))
+      } catch (e) {
+        this.$message('解密失败！' + e.toString())
+      }
+    },
+    copy () {
+      this.$copyText(this.output).then((e) => {
+        this.$message('已成功复制到剪切板')
+      }, (e) => {
+        this.$message('复制到剪切板失败！' + e.toString())
+      })
+    },
+    jiaohuanneirong () {
+      let s = this.input
+      this.input = this.output
+      this.output = s
+      this.$message('内容交换成功！')
+    }
+  }
+}
 </script>
 <style>
 </style>
