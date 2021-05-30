@@ -21,6 +21,8 @@ npm run build
 -----
 演示地址 [https://xwintop.gitee.io/xvuetool](https://xwintop.gitee.io/xvuetool "x-tool")
 
+后续准备迁移至react版本的功能
+
 **xJavaFxTool交流QQ群：== [387473650(此群已满)](https://jq.qq.com/?_wv=1027&k=59UDEAD) [1104780992](https://jq.qq.com/?_wv=1027&k=bhAdkju9) ==**
 **xJavaFxTool吐个槽：== [进来吐槽](https://support.qq.com/product/127577) ==**
 
