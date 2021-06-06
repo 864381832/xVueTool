@@ -18,28 +18,28 @@
         <el-option v-for="item in langs" :key="item.value" :label="item.label" :value="item.value"></el-option>
       </el-select>
       <ul>
-        <li>
-          <el-popover
-            :title="$t('message.navBar.MESSAGE_TEXT')"
-            width="200"
-            trigger="hover"
-            content="开启web小工具"
-          >
-            <el-badge :value="5" slot="reference">
-              <i class="el-icon-message-solid"></i>
-            </el-badge>
-          </el-popover>
-        </li>
-        <li>
-          <el-popover
-            :title="$t('message.navBar.NOTE_TEXT')"
-            width="200"
-            trigger="hover"
-            content="小工具开始搭建！"
-          >
-            <i class="el-icon-s-order" slot="reference"></i>
-          </el-popover>
-        </li>
+<!--        <li>-->
+<!--          <el-popover-->
+<!--            :title="$t('message.navBar.MESSAGE_TEXT')"-->
+<!--            width="200"-->
+<!--            trigger="hover"-->
+<!--            content="开启web小工具"-->
+<!--          >-->
+<!--            <el-badge :value="5" slot="reference">-->
+<!--              <i class="el-icon-message-solid"></i>-->
+<!--            </el-badge>-->
+<!--          </el-popover>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <el-popover-->
+<!--            :title="$t('message.navBar.NOTE_TEXT')"-->
+<!--            width="200"-->
+<!--            trigger="hover"-->
+<!--            content="小工具开始搭建！"-->
+<!--          >-->
+<!--            <i class="el-icon-s-order" slot="reference"></i>-->
+<!--          </el-popover>-->
+<!--        </li>-->
         <li>
           <el-popover :title="$t('message.navBar.SHARE_TEXT')" width="330" trigger="hover">
             <div>
