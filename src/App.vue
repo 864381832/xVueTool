@@ -1,12 +1,10 @@
 <template>
-  <div id="app">
     <router-view />
-  </div>
 </template>
 
 <script>
 export default {
-  name: "App",
+  name: 'App',
   mounted () {
     const script = document.createElement('script')
     script.src = 'https://v1.cnzz.com/z_stat.php?id=1278632265&web_id=1278632265'
@@ -23,7 +21,7 @@ export default {
       }
     }
   }
-};
+}
 </script>
 
 <style>

@@ -39,6 +39,7 @@
     "jsoneditor": "^8.6.1",
     "xml-js": "^1.6.11",
     "vue-clipboard2": "^0.3.1",
+    "axios": "0.18.1",
     "date-format": "^3.0.0"
   },
   "devDependencies": {
